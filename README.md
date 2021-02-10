@@ -29,5 +29,5 @@ I have used set of IPV4 subents from the large private subnet available on AWS ,
 
 All of the above steps can be automated from CI/CD Pipeline if you want to do so. 
 
-Have fun deploying applications to these VPC's , inetgrating , testing . 
+Have fun deploying applications to these VPC's , integrating , testing . 
 
