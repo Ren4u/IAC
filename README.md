@@ -1,4 +1,4 @@
-# This Code Repository has terraform code for provisioing and testing a service oriented architecture on AWS Platform.
+# This Code Repository has terraform code for provisioning and testing a service oriented architecture on AWS Platform.
 
 # Pre requisites before running the code to deploy infrastructure 
 
