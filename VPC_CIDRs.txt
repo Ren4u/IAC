@@ -1,0 +1,150 @@
+
+
+Country Case Consideration -  Singapore 
+
+Design the Singapore network on AWS - within the IPV4 Private network segment 10.0.0.0/8
+
+
+SG Reserved IPV4 CIDR’s  for the country network -  10.1.0.0/16 , 10.2.0.0/16 
+
+
+
+Line of Business Segments  - Retail - 10.1.0.0 /24. - 10.1.10.0/24 
+
+SG Retail Consumer Channel  CIDR’s  - 10.1.0.0/24 , 10.1.1.0/24 
+
+SG Retail Consumer Channel DMZ Segment CIDR’s - 10.1.0.0/24 , 10.1.2.0/24
+
+SG Retail Consumer Channel Internal Segment CIDR’s - 10.1.1.0/24 , 10.1.3.0/24 
+
+
+Retail Consumer Channel DMZ Ingress VPC Architecture 
+——————————————————-
+
+Mobile Banking - Ingress VPC - DMZ -  
+( VPC CIDR 10.1.0.0/25 , subnet mask - 255.255.255.128 ). 
+
+( Load balancer public subnets  AZ1 - 10.1.0.0/29 , AZ2 - 10.1.0.8/29 , AZ3 - 10.1.0.16/29 ,  reserved subnet 10.1.0.24/29  - subnet mask - 255.255.255.248 ) 
+
+( Reverse Proxy , NAT proxy private subnets  AZ1 - 10.1.0.32/28 , AZ2 - 10.1.0.48/28 , AZ3 - 10.1.0.64/28 , reserved subnets - 10.1.0.80/28 , 10. 0.1.96/28 , 10. 0.1.112/28   subnet mask - 255.255.255.240)
+
+———————————————————
+Internet Banking - Ingress VPC - DMZ - ( VPC CIDR 10.1.0.128/25 , subnet mask - 255.255.255.128). 
+
+( Load balancer public subnets  AZ1 - 10.1.0.128/29 , AZ2 - 10.1.0.136/29 , AZ3 - 10.1.0.144/29 ,  reserved subnet 10.1.0.152/29  - subnet mask - 255.255.255.248 ) 
+
+( Reverse Proxy , NAT proxy subnet - AZ1 - 10.1.0.160/28 ,  AZ2 - 10.1.0.176/28 , AZ3 - 10.1.0.192/28 ,  reserved subnets - 10.1.0.208/28 , 10. 0.1.224/28 , 10. 0.1.240/28 subnet mask 255.255.255.240)
+
+
+
+Online Banking - Ingress VPC -  ( VPC CIDR 10.1.0.192/26 , subnet mask - 255.255.255.192). ( Load balancer public subnet - 10.1.0.192/27 , subnet mask - 255.255.255.224 ) ( Reverse Proxy , NAT proxy subnet - 10.1.0.224/27 , subnet mask 255.255.255.224 )
+
+                               
+
+———————————————————————————————————————————————————————————
+
+Retail Consumer Channel Internal VPC Architecture 
+——————————— 
+
+Mobile Banking - Internal VPC -  ( Application business logic  and Database )  
+
+Mobile Banking - Application VPC - Internal Network 
+
+( VPC CIDR 10.1.1.0/25 , subnet mask - 255.255.255.128 ). 
+
+( Application layer private subnets - AZ1 - 10.1.1.0/27 , AZ2 - 10.1.1.32/27 , AZ3 - 10.1.1.64/27  )
+
+( Database layer subnets - AZ1 - 10.1.1.96/29 , AZ2 - 10.1.1.104/29 , AZ3 - 10.1.1.112/29 , reserved subnet - 10.1.1.120/29 )
+
+—————————————————————
+
+Internet Banking - Internal VPC - ( Application business logic  and Database )  
+
+Internet Banking - Internal VPC 
+
+( VPC CIDR 10.1.1.128/25 , subnet mask - 255.255.255.128 ). 
+
+( Application layer private subnets - AZ1 - 10.1.1.128/27 , AZ2 - 10.1.1.160/27 , AZ3 - 10.1.1.192/27  )
+
+( Database layer subnets - AZ1 - 10.1.1.224/29 , AZ2 - 10.1.1.232/29 , AZ3 - 10.1.1.240/29 ,)
+
+
+———————————
+
+———————————————————————————————————————————————————————————
+Core Products Internal VPC Architecture 
+——————————— 
+
+SG Core Banking - Internal VPC -  
+
+SG Core Products reserved CIDR’s - 10.2.1.0 /24 - 10.2.3.0/24
+
+( VPC CIDR 10.2.1.0/24 , subnet mask - 255.255.255.0  ). 
+
+( Application layer private subnets - AZ1 - 10.2.1.0/27 , AZ2 - 10.2.1.32/27 , AZ3 - 10.2.1.64/27  )
+
+( Database layer subnets - AZ1 - 10.2.1.96/28 , AZ2 - 10.2.1.112/28 , AZ3 - 10.2.1.128/28  )
+
+—————————————————————
+
+
+
+
+—————————————————————————————————————————————————————————————
+
+Application Integration Services Internal VPC Architecture 
+————————————————
+
+Integration Services  - Internal VPC 
+
+Reserved IP V4 CIDR for Brokering Applications   - 10.25.0.0/16 , 10.26.0.0/16 
+
+( VPC CIDR 10.25.0.0/22 , subnet mask - 255.255.252.0). 
+
+( Application layer private subnets - AZ1 - 10.25.0.0/24 , AZ2 - 10.25.1.0/24 , AZ3 - 10.25.2.0/24 )
+
+( Database layer subnets - AZ1 - 10.25.3.0/26 , AZ2 - 10.25.3.64/26 , AZ3 - 10.25.3.128/26  , reserved subnet - 10.25.3.192/26 )
+
+
+
+————————————————————————————————————————————————————————————————————
+
+
+Security Services Internal VPC Architecture
+—————————————————— 
+
+Reserved IP V4 CIDR for Security Applications   -  10.100.0.0/16 
+
+
+( VPC CIDR 10.100.0.0/22 , subnet mask - 255.255.252.0). 
+
+( Application layer private subnets - AZ1 - 10.100.0.0/24 , AZ2 - 10.100.1.0/24 , AZ3 - 10.100.2.0/24 )
+
+( Database layer subnets - AZ1 - 10.100.3.0/26 , AZ2 - 10.100.3.64/26 , AZ3 - 10.100.3.128/26  , reserved subnet - 10.25.3.192/26 )
+
+———————————————————————————————————————————————————————————————————
+
+
+
+Monitoring Services Internal VPC Architecture
+———————————————————————
+
+Reserved IP V4 CIDR for Monitoring Applications   -  10.75.0.0/16 
+
+( VPC CIDR 10.75.0.0/22 , subnet mask - 255.255.252.0). 
+
+( Application layer private subnets - AZ1 - 10.75.0.0/24 , AZ2 - 10.75.1.0/24 , AZ3 - 10.75.2.0/24 )
+
+( Database layer subnets - AZ1 - 10.75.3.0/26 , AZ2 - 10.75.3.64/26 , AZ3 - 10.75.3.128/26  , reserved subnet - 10.25.3.192/26 )
+
+
+——————————————————————————————————————————————————————————————
+
+
+
+
+
+
+
+
+
