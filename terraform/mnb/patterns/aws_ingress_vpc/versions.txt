@@ -1,0 +1,2 @@
+The module version and releases
+current = v1.0
