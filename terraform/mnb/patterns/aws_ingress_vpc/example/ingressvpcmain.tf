@@ -2,7 +2,7 @@ data "aws_availability_zones" "ingressvpc_available" {}
 
 
 module "ingressvpc" {
-  source = "../../../../../../../patterns/aws_ingress_vpc"
+  source = "../../../patterns/aws_ingress_vpc/"
 
   ingressvpc_name = var.ingressvpc_name
   ingressvpc_cidr = var.ingressvpc_cidr
