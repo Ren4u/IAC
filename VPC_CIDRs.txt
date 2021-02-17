@@ -37,10 +37,6 @@ Internet Banking - Ingress VPC - DMZ - ( VPC CIDR 10.1.0.128/25 , subnet mask - 
 
 
 
-Online Banking - Ingress VPC -  ( VPC CIDR 10.1.0.192/26 , subnet mask - 255.255.255.192). ( Load balancer public subnet - 10.1.0.192/27 , subnet mask - 255.255.255.224 ) ( Reverse Proxy , NAT proxy subnet - 10.1.0.224/27 , subnet mask 255.255.255.224 )
-
-                               
-
 ———————————————————————————————————————————————————————————
 
 Retail Consumer Channel Internal VPC Architecture 
