@@ -24,16 +24,16 @@ Retail Consumer Channel DMZ Ingress VPC Architecture
 Mobile Banking - Ingress VPC - DMZ -  
 ( VPC CIDR 10.1.0.0/25 , subnet mask - 255.255.255.128 ). 
 
-( Load balancer public subnets  AZ1 - 10.1.0.0/29 , AZ2 - 10.1.0.8/29 , AZ3 - 10.1.0.16/29 ,  reserved subnet 10.1.0.24/29  - subnet mask - 255.255.255.248 ) 
+( Load balancer public subnets  AZ1 - 10.1.0.0/28 , AZ2 - 10.1.0.16/28 , AZ3 - 10.1.0.32/28  - subnet mask - 255.255.255.240 ) 
 
 ( Reverse Proxy , NAT proxy private subnets  AZ1 - 10.1.0.32/28 , AZ2 - 10.1.0.48/28 , AZ3 - 10.1.0.64/28 , reserved subnets - 10.1.0.80/28 , 10. 0.1.96/28 , 10. 0.1.112/28   subnet mask - 255.255.255.240)
 
 ———————————————————
 Internet Banking - Ingress VPC - DMZ - ( VPC CIDR 10.1.0.128/25 , subnet mask - 255.255.255.128). 
 
-( Load balancer public subnets  AZ1 - 10.1.0.128/29 , AZ2 - 10.1.0.136/29 , AZ3 - 10.1.0.144/29 ,  reserved subnet 10.1.0.152/29  - subnet mask - 255.255.255.248 ) 
+( Load balancer public subnets  AZ1 - 10.1.0.128/28 , AZ2 - 10.1.0.144/28 , AZ3 - 10.1.0.160/28   - subnet mask - 255.255.255.240 ) 
 
-( Reverse Proxy , NAT proxy subnet - AZ1 - 10.1.0.160/28 ,  AZ2 - 10.1.0.176/28 , AZ3 - 10.1.0.192/28 ,  reserved subnets - 10.1.0.208/28 , 10. 0.1.224/28 , 10. 0.1.240/28 subnet mask 255.255.255.240)
+( Reverse Proxy , NAT proxy subnet - AZ1 - 10.1.0.176/28 ,  AZ2 - 10.1.0.192/28 , AZ3 - 10.1.0.208/28 ,- reserved 10. 0.1.224/28 , 10. 0.1.240/28 subnet mask 255.255.255.240)
 
 
 
@@ -52,9 +52,9 @@ Mobile Banking - Application VPC - Internal Network
 
 ( VPC CIDR 10.1.1.0/25 , subnet mask - 255.255.255.128 ). 
 
-( Application layer private subnets - AZ1 - 10.1.1.0/27 , AZ2 - 10.1.1.32/27 , AZ3 - 10.1.1.64/27  )
+( Application layer private subnets - AZ1 - 10.1.1.0/28 , AZ2 - 10.1.1.16/28 , AZ3 - 10.1.1.32/28  )
 
-( Database layer subnets - AZ1 - 10.1.1.96/29 , AZ2 - 10.1.1.104/29 , AZ3 - 10.1.1.112/29 , reserved subnet - 10.1.1.120/29 )
+( Database layer subnets - AZ1 - 10.1.1.48/28 , AZ2 - 10.1.1.64/28 , AZ3 - 10.1.1.80/28 )
 
 —————————————————————
 
@@ -64,9 +64,9 @@ Internet Banking - Internal VPC
 
 ( VPC CIDR 10.1.1.128/25 , subnet mask - 255.255.255.128 ). 
 
-( Application layer private subnets - AZ1 - 10.1.1.128/27 , AZ2 - 10.1.1.160/27 , AZ3 - 10.1.1.192/27  )
+( Application layer private subnets - AZ1 - 10.1.1.128/28 , AZ2 - 10.1.1.144/28 , AZ3 - 10.1.1.160/28  )
 
-( Database layer subnets - AZ1 - 10.1.1.224/29 , AZ2 - 10.1.1.232/29 , AZ3 - 10.1.1.240/29 ,)
+( Database layer subnets - AZ1 - 10.1.1.176/28 , AZ2 - 10.1.1.192/28 , AZ3 - 10.1.1.208/28 ,)
 
 
 ———————————
